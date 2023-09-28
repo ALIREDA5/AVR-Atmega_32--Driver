@@ -1,0 +1,103 @@
+/*
+ * GccApplication1.c
+ *
+ * Created: 9/18/2023 6:55:29 PM
+ * Author : Ali Reda
+ */ 
+
+
+				/*----------------- Libraries and Definitions ------------*/
+
+
+#include "stdint.h"
+#include "string.h"
+#include "MCAL/DIO.h"
+#include "HAL/SevenSegment.h"
+#include "HAL/LCD.h"
+#include "MCAL/EXTI.h"
+
+
+				/*--------------------- Functions Prototypes ---------------------------*/
+
+
+/************  special Patterns  *************/
+
+uint8_t StickMan[] = { 0x04,0x0a,0x04,0x0e,0x15,0x04,0xa,0xa};				
+uint8_t Bird1[] = { 0x01, 0x03, 0x07, 0x0D, 0x0F, 0x02, 0x05, 0x0A };	
+uint8_t Bird2[] = { 0x10, 0x18, 0x1C, 0x16, 0x1E, 0x08, 0x14, 0x0A };	
+uint8_t OpenedMouse[] = { 0x0F,0x1E,0x1C,0x18,0x18,0x1C,0x1E,0x0F};
+uint8_t ClosedMouse[] = { 0x0E,0x1F,0x1B,0x1F,0x1C,0x1F,0x1F,0x0E};
+uint8_t HeartChar[] = { 0x00, 0x00, 0x0a, 0x15, 0x11, 0x0a, 0x04, 0x00};
+uint8_t SpeakerChar[] = {0x01, 0x03, 0x07, 0x1f, 0x1f, 0x07, 0x03, 0x01};
+uint8_t SmileyFaceChar[] = {0x00, 0x00, 0x0a, 0x00, 0x1f, 0x11, 0x0e, 0x00};
+uint8_t BellChar[] = {0x04, 0x0e, 0x0a, 0x0a, 0x0a, 0x1f, 0x00, 0x04};
+uint8_t Battery1Char[] = {0x0e, 0x1b, 0x11, 0x11, 0x11, 0x11, 0x1f, 0x1f};
+uint8_t Battery2Char[] = {0x0e, 0x1b, 0x11, 0x11, 0x11, 0x1f, 0x1f, 0x1f};
+uint8_t Battery3Char[] = {0x0e, 0x1b, 0x11, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f};
+	
+				/*-------------------------- The Main Function ----------------------------*/
+int main(void)
+{
+	
+	
+    Init_Pins();
+    LCD_Init();
+	LCD_Create_Character(Battery1Char,1);
+	LCD_Create_Character(Battery2Char,2);
+	LCD_Create_Character(Battery3Char,3);
+	LCD_Create_Character(StickMan,4);
+	LCD_Create_Character(OpenedMouse,5);
+	LCD_Create_Character(ClosedMouse,6);
+	LCD_Create_Character(SpeakerChar,7);
+	LCD_Create_Character(BellChar,8);
+	LCD_Create_Character(SmileyFaceChar,9);
+	LCD_Create_Character(HeartChar,10);
+	uint8_t str[]="Ahmed";
+	LCD_Clear();
+	
+    while(1)
+    {
+		uint8_t l=0;
+		while(str[l])
+		l++;
+		
+		for (uint8_t i=l; i>1; i--)
+		{
+			
+			LCD_GOTO(0,0);
+			LCD_WriteString(str+i-1);
+			_delay_ms(1000);
+			LCD_Clear();
+		}
+		
+		for (uint8_t i=0; i<16; i++)
+		{
+			LCD_GOTO(0,i);
+			LCD_WriteString(str);
+			_delay_ms(1000);
+			LCD_Clear();
+		}
+		for (uint8_t i=0; i<16; i++)
+		{
+			LCD_GOTO(1,15);
+			LCD_WriteData(4);
+			if (i==14)
+			{
+				LCD_GOTO(1,i);
+				LCD_WriteData(5);
+				_delay_ms(1000);
+				LCD_Clear();
+			}
+			else
+			{
+				LCD_GOTO(1,i);
+				LCD_WriteData(6);
+				_delay_ms(1000);
+				LCD_Clear();
+			}
+		}  
+    }
+
+
+}
+
