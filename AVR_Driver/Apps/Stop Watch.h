@@ -19,7 +19,8 @@
 #include "../HAL/LCD.h"
 #include "../MCAL/EXTI.h"
 #include "../MCAL/Timer0.h"
-
+#include "../MCAL/Timer1.h"
+#include "../MCAL/Timer2.h"
 /*--------------------- Functions Prototypes ---------------------------*/
 
 void start();

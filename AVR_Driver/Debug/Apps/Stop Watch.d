@@ -11,7 +11,8 @@ Apps/Stop Watch.d Apps/Stop Watch.o: ../Apps/Stop\ Watch.c \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  ../Apps/../MCAL/../MemoryMap.h ../Apps/../HAL/SevenSegment.h \
  ../Apps/../HAL/../MCAL/DIO.h ../Apps/../HAL/Keypad.h \
- ../Apps/../HAL/LCD.h ../Apps/../MCAL/EXTI.h ../Apps/../MCAL/Timer0.h
+ ../Apps/../HAL/LCD.h ../Apps/../MCAL/EXTI.h ../Apps/../MCAL/Timer0.h \
+ ../Apps/../MCAL/Timer1.h ../Apps/../MCAL/Timer2.h
 
 ../Apps/Stop\ Watch.h:
 
@@ -48,3 +49,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 ../Apps/../MCAL/EXTI.h:
 
 ../Apps/../MCAL/Timer0.h:
+
+../Apps/../MCAL/Timer1.h:
+
+../Apps/../MCAL/Timer2.h:

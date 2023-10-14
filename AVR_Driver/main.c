@@ -12,22 +12,34 @@
 #include "stdint.h"
 #include "string.h"
 #include "MCAL/DIO.h"
+#include "Utils.h"
 #include "HAL/SevenSegment.h"
 #include "HAL/Keypad.h"
 #include "HAL/LCD.h"
 #include "MCAL/EXTI.h"
-#include "Apps/Calculator_call.h"
-#include "Apps/Stop Watch.h"
 #include "MCAL/Timer0.h"
 #include "MCAL/Timer1.h"
-#include "MCAL/Timer2.h"
-#include "MCAL/WD_Timer.h"
-
-		
+#include "HAL/Servo.h"
+#include "MCAL/ADC.h"
+#include "Sensors/LM35.h"		
 			/*-------------------------- The Main Function ----------------------------*/
 			
 int main(void)
 {
-	StopWatch_Call();
+	sei();
+	Init_Pins();
+	LCD_Init();
+	ADC_Init(ADC_AVCC,ADC_SCALER_64_);
+	LCD_GOTO(0,0);
+	uint16_t x;
+	while(1)
+	{
+		LCD_GOTO(1,0);
+		x=ADC_ReadChannel(ADC0);
+		LCD_WriteNumber(x);
+		LCD_GOTO(0,0);
+	//	x=Temp_sensor(ADC1);
+	//	LCD_WriteNumber(x);	
+	}
 }
 

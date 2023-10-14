@@ -12,8 +12,8 @@
 /*--------------------------- Global Variables ------------------------------*/
 	
 volatile uint8_t sec=10;
-volatile uint8_t min=0;
-volatile uint8_t hour=0;
+volatile uint8_t min=2;
+volatile uint8_t hour=1;
 
 /*-------------------------- Function to start counting  ----------------------------*/
 void start()
@@ -74,18 +74,27 @@ void reset()
 /*-------------------------- Function to resume counting ----------------------------*/
 void resume()
 {
-	// start clock
-	CLEAR_BIT(TCCR0,CS00);
-	SET_BIT(TCCR0,CS01);
-	CLEAR_BIT(TCCR0,CS02);
+	// start clock timer 0
+// 	CLEAR_BIT(TCCR0,CS00);
+// 	SET_BIT(TCCR0,CS01);
+// 	CLEAR_BIT(TCCR0,CS02
+   // start clock timer 1	
+   CLEAR_BIT(TCCR1B,CS10);
+   SET_BIT(TCCR1B,CS11);
+   CLEAR_BIT(TCCR1B,CS12);
+	
 }
 /*-------------------------- Function to stop counting ----------------------------*/
 void stop()
 {
-	// close clock
-	CLEAR_BIT(TCCR0,CS00);
-	CLEAR_BIT(TCCR0,CS01);
-	CLEAR_BIT(TCCR0,CS02);
+	// close clock timer 0
+// 	CLEAR_BIT(TCCR0,CS00);
+// 	CLEAR_BIT(TCCR0,CS01);
+// 	CLEAR_BIT(TCCR0,CS02
+	// close clock timer 1
+	CLEAR_BIT(TCCR1B,CS10);
+	CLEAR_BIT(TCCR1B,CS11);
+	CLEAR_BIT(TCCR1B,CS12);
 }
 
 void StopWatch_Call()
@@ -93,7 +102,8 @@ void StopWatch_Call()
 	sei();
 	Init_Pins();
 	LCD_Init();
-	TIMER0_Init(CTC,TIMER0_SCALER_8,Disconnected);
+//	TIMER2_Init(cTC,TIMER2_SCALER_8,disconnected);
+	Timer1_Init(TIMER1_CTC_OCRA_TOP_MODE,TIMER1_SCALER_8,OCRA_DISCONNECTED,OCRB_DISCONNECTED);
 	EXI_Enable(EXI_0);
 	EXI_TriggerEdge(EXI_0,RISING_EDGE);
 	EXI_SetCallBack(EXI_0,stop);
@@ -108,7 +118,7 @@ void StopWatch_Call()
 	
 	while(1)
 	{
-		TIMER0_SetInterrupt_ms(1,start);
+    	TIMER1_SetInterrupt_ms(1,start);
 		LCD_GOTO(1,4);
 		LCD_WriteNumber2D(hour);
 		LCD_WriteChar(':');

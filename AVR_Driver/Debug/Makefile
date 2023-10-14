@@ -35,25 +35,31 @@ LINKER_SCRIPT_DEP:=
 SUBDIRS :=  \
 ../MCAL \
 ../HAL \
-../Apps
+../Apps \
+../Sensors
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Apps/Calculator.c \
+../Apps/DCmotor.c \
+../Apps/Servo\ Lap.c \
 ../Apps/Stop\ Watch.c \
 ../Apps/Timer\ 0\ test.c \
 ../HAL/Keypad.c \
 ../HAL/LCD.c \
+../HAL/Servo.c \
 ../HAL/SevenSegment.c \
 ../main.c \
+../MCAL/ADC.c \
 ../MCAL/DIO.c \
 ../MCAL/DIO_lcfg.c \
 ../MCAL/EXTI.c \
 ../MCAL/Timer0.c \
 ../MCAL/Timer1.c \
 ../MCAL/Timer2.c \
-../MCAL/WD_Timer.c
+../MCAL/WD_Timer.c \
+../Sensors/LM35.c
 
 
 PREPROCESSING_SRCS += 
@@ -64,67 +70,87 @@ ASM_SRCS +=
 
 OBJS +=  \
 Apps/Calculator.o \
+Apps/DCmotor.o \
+Apps/Servo\ Lap.o \
 Apps/Stop\ Watch.o \
 Apps/Timer\ 0\ test.o \
 HAL/Keypad.o \
 HAL/LCD.o \
+HAL/Servo.o \
 HAL/SevenSegment.o \
 main.o \
+MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_lcfg.o \
 MCAL/EXTI.o \
 MCAL/Timer0.o \
 MCAL/Timer1.o \
 MCAL/Timer2.o \
-MCAL/WD_Timer.o
+MCAL/WD_Timer.o \
+Sensors/LM35.o
 
 OBJS_AS_ARGS +=  \
 Apps/Calculator.o \
+Apps/DCmotor.o \
+"Apps/Servo Lap.o" \
 "Apps/Stop Watch.o" \
 "Apps/Timer 0 test.o" \
 HAL/Keypad.o \
 HAL/LCD.o \
+HAL/Servo.o \
 HAL/SevenSegment.o \
 main.o \
+MCAL/ADC.o \
 MCAL/DIO.o \
 MCAL/DIO_lcfg.o \
 MCAL/EXTI.o \
 MCAL/Timer0.o \
 MCAL/Timer1.o \
 MCAL/Timer2.o \
-MCAL/WD_Timer.o
+MCAL/WD_Timer.o \
+Sensors/LM35.o
 
 C_DEPS +=  \
 Apps/Calculator.d \
+Apps/DCmotor.d \
+Apps/Servo\ Lap.d \
 Apps/Stop\ Watch.d \
 Apps/Timer\ 0\ test.d \
 HAL/Keypad.d \
 HAL/LCD.d \
+HAL/Servo.d \
 HAL/SevenSegment.d \
 main.d \
+MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_lcfg.d \
 MCAL/EXTI.d \
 MCAL/Timer0.d \
 MCAL/Timer1.d \
 MCAL/Timer2.d \
-MCAL/WD_Timer.d
+MCAL/WD_Timer.d \
+Sensors/LM35.d
 
 C_DEPS_AS_ARGS +=  \
 Apps/Calculator.d \
+Apps/DCmotor.d \
+"Apps/Servo Lap.d" \
 "Apps/Stop Watch.d" \
 "Apps/Timer 0 test.d" \
 HAL/Keypad.d \
 HAL/LCD.d \
+HAL/Servo.d \
 HAL/SevenSegment.d \
 main.d \
+MCAL/ADC.d \
 MCAL/DIO.d \
 MCAL/DIO_lcfg.d \
 MCAL/EXTI.d \
 MCAL/Timer0.d \
 MCAL/Timer1.d \
 MCAL/Timer2.d \
-MCAL/WD_Timer.d
+MCAL/WD_Timer.d \
+Sensors/LM35.d
 
 OUTPUT_FILE_PATH +=AVR_Driver.elf
 
@@ -141,6 +167,20 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 Apps/Calculator.o: ../Apps/Calculator.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Apps/DCmotor.o: ../Apps/DCmotor.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Apps/Servo\ Lap.o: ../Apps/Servo\ Lap.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -175,6 +215,13 @@ HAL/LCD.o: ../HAL/LCD.c
 	@echo Finished building: $<
 	
 
+HAL/Servo.o: ../HAL/Servo.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 HAL/SevenSegment.o: ../HAL/SevenSegment.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -183,6 +230,13 @@ HAL/SevenSegment.o: ../HAL/SevenSegment.c
 	
 
 ./main.o: .././main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/ADC.o: ../MCAL/ADC.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -232,6 +286,13 @@ MCAL/Timer2.o: ../MCAL/Timer2.c
 	
 
 MCAL/WD_Timer.o: ../MCAL/WD_Timer.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Sensors/LM35.o: ../Sensors/LM35.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

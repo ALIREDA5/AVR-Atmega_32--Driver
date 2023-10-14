@@ -17,7 +17,7 @@ static void (*pf_OC) (void)=NULLptr;
 
 /*----------------- Global Variables ------------*/
 
-static uint32_t C_set=0;
+static uint64_t C_set=0;
 
 
 
@@ -84,29 +84,29 @@ void Timer1_Init(Timer1_Mode mode1, Timer1_Scaler scaler, Timer1_OC1A_Mode oc1a_
 	}
 	switch(scaler){
 		case TIMER1_STOP:
-		CLEAR_BIT(TCCR1A,CS10);
-		CLEAR_BIT(TCCR1A,CS11);
-		CLEAR_BIT(TCCR1A,CS12);
+		CLEAR_BIT(TCCR1B,CS10);
+		CLEAR_BIT(TCCR1B,CS11);
+		CLEAR_BIT(TCCR1B,CS12);
 		break;
 		case TIMER1_SCALER_1:
-		SET_BIT(TCCR1A,CS10);
-		CLEAR_BIT(TCCR1A,CS11);
-		CLEAR_BIT(TCCR1A,CS12);
+		SET_BIT(TCCR1B,CS10);
+		CLEAR_BIT(TCCR1B,CS11);
+		CLEAR_BIT(TCCR1B,CS12);
 		break;
 		case TIMER1_SCALER_8:
-		CLEAR_BIT(TCCR1A,CS10);
-		SET_BIT(TCCR1A,CS11);
-		CLEAR_BIT(TCCR1A,CS12);
+		CLEAR_BIT(TCCR1B,CS10);
+		SET_BIT(TCCR1B,CS11);
+		CLEAR_BIT(TCCR1B,CS12);
 		break;
 		case TIMER1_SCALER_64:
-		SET_BIT(TCCR1A,CS10);
-		SET_BIT(TCCR1A,CS11);
-		CLEAR_BIT(TCCR1A,CS12);
+		SET_BIT(TCCR1B,CS10);
+		SET_BIT(TCCR1B,CS11);
+		CLEAR_BIT(TCCR1B,CS12);
 		break;
 		case TIMER1_SCALER_256:
-		CLEAR_BIT(TCCR1A,CS10);
-		CLEAR_BIT(TCCR1A,CS11);
-		SET_BIT(TCCR1A,CS12);
+		CLEAR_BIT(TCCR1B,CS10);
+		CLEAR_BIT(TCCR1B,CS11);
+		SET_BIT(TCCR1B,CS12);
 		break;
 		case TIMER1_SCALER_1024:
 		SET_BIT(TCCR1A,CS10);
@@ -114,14 +114,14 @@ void Timer1_Init(Timer1_Mode mode1, Timer1_Scaler scaler, Timer1_OC1A_Mode oc1a_
 		SET_BIT(TCCR1A,CS12);
 		break;
 		case EXTERNAL1_FALLING:
-		CLEAR_BIT(TCCR1A,CS10);
-		SET_BIT(TCCR1A,CS11);
-		SET_BIT(TCCR1A,CS12);
+		CLEAR_BIT(TCCR1B,CS10);
+		SET_BIT(TCCR1B,CS11);
+		SET_BIT(TCCR1B,CS12);
 		break;
 		case EXTERNAL1_RISING:
-		SET_BIT(TCCR1A,CS10);
-		SET_BIT(TCCR1A,CS11);
-		SET_BIT(TCCR1A,CS12);
+		SET_BIT(TCCR1B,CS10);
+		SET_BIT(TCCR1B,CS11);
+		SET_BIT(TCCR1B,CS12);
 		break;
 
 	}
@@ -164,9 +164,6 @@ void Timer1_Init(Timer1_Mode mode1, Timer1_Scaler scaler, Timer1_OC1A_Mode oc1a_
 		break;
 	}
 	
-	TCCR1B&=0XF8;
-	TCCR1B|=scaler;
-
 }
 
 void Timer1_InputCaptureEdge(ICU_Edge_type edge)
@@ -249,7 +246,7 @@ void TIMER1_SetInterrupt_ms(uint16_t time, void (*pf)(void))
 
 void fun_oc1()
 {
-	static uint32_t C = 0;
+	static uint64_t C = 0;
 	C++;
 	if (C==C_set)
 	{

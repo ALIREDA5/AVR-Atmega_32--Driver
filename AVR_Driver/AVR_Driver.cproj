@@ -126,6 +126,15 @@
     <Compile Include="Apps\Calculator_call.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Apps\DCmotor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Apps\DCmotor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Apps\Servo Lap.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Apps\Stop Watch.c">
       <SubType>compile</SubType>
     </Compile>
@@ -147,6 +156,12 @@
     <Compile Include="HAL\LCD.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Servo.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Servo.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\SevenSegment.c">
       <SubType>compile</SubType>
     </Compile>
@@ -154,6 +169,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\DIO.c">
@@ -198,6 +219,12 @@
     <Compile Include="MemoryMap.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Sensors\LM35.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sensors\LM35.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Utils.h">
       <SubType>compile</SubType>
     </Compile>
@@ -206,6 +233,7 @@
     <Folder Include="MCAL" />
     <Folder Include="HAL" />
     <Folder Include="Apps" />
+    <Folder Include="Sensors" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

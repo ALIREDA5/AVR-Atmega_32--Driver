@@ -154,7 +154,7 @@ static uint32_t C_set=0;
 		Timer2_OVF_Fptr=ptr;
 	}
 
-	void TIMER2_SetCallBack(void (*ptr)(void)){
+	void TIMER2_OC_SetCallBack(void (*ptr)(void)){
 		Timer2_OC2_Fptr=ptr;
 	}
 	
