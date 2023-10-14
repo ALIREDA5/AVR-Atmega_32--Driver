@@ -4,13 +4,15 @@
 
 Apps\Calculator.c
 
-Apps\DCmotor.c
+Apps\Fan Controller.c
 
 Apps\Servo Lap.c
 
 Apps\Stop Watch.c
 
 Apps\Timer 0 test.c
+
+HAL\DCmotor.c
 
 HAL\Keypad.c
 

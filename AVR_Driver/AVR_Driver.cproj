@@ -126,10 +126,10 @@
     <Compile Include="Apps\Calculator_call.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Apps\DCmotor.c">
+    <Compile Include="Apps\Fan Controller.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Apps\DCmotor.h">
+    <Compile Include="Apps\Fan Controller.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Apps\Servo Lap.c">
@@ -142,6 +142,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Apps\Timer 0 test.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\DCmotor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\DCmotor.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\Keypad.c">

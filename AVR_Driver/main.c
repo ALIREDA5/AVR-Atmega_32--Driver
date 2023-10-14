@@ -21,25 +21,13 @@
 #include "MCAL/Timer1.h"
 #include "HAL/Servo.h"
 #include "MCAL/ADC.h"
-#include "Sensors/LM35.h"		
+#include "Sensors/LM35.h"
+#include "Apps/Fan Controller.h"		
 			/*-------------------------- The Main Function ----------------------------*/
 			
 int main(void)
 {
-	sei();
-	Init_Pins();
-	LCD_Init();
-	ADC_Init(ADC_AVCC,ADC_SCALER_64_);
-	LCD_GOTO(0,0);
-	uint16_t x;
-	while(1)
-	{
-		LCD_GOTO(1,0);
-		x=ADC_ReadChannel(ADC0);
-		LCD_WriteNumber(x);
-		LCD_GOTO(0,0);
-	//	x=Temp_sensor(ADC1);
-	//	LCD_WriteNumber(x);	
-	}
+	Fan_Controller_call();
+
 }
 

@@ -42,10 +42,11 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Apps/Calculator.c \
-../Apps/DCmotor.c \
+../Apps/Fan\ Controller.c \
 ../Apps/Servo\ Lap.c \
 ../Apps/Stop\ Watch.c \
 ../Apps/Timer\ 0\ test.c \
+../HAL/DCmotor.c \
 ../HAL/Keypad.c \
 ../HAL/LCD.c \
 ../HAL/Servo.c \
@@ -70,10 +71,11 @@ ASM_SRCS +=
 
 OBJS +=  \
 Apps/Calculator.o \
-Apps/DCmotor.o \
+Apps/Fan\ Controller.o \
 Apps/Servo\ Lap.o \
 Apps/Stop\ Watch.o \
 Apps/Timer\ 0\ test.o \
+HAL/DCmotor.o \
 HAL/Keypad.o \
 HAL/LCD.o \
 HAL/Servo.o \
@@ -91,10 +93,11 @@ Sensors/LM35.o
 
 OBJS_AS_ARGS +=  \
 Apps/Calculator.o \
-Apps/DCmotor.o \
+"Apps/Fan Controller.o" \
 "Apps/Servo Lap.o" \
 "Apps/Stop Watch.o" \
 "Apps/Timer 0 test.o" \
+HAL/DCmotor.o \
 HAL/Keypad.o \
 HAL/LCD.o \
 HAL/Servo.o \
@@ -112,10 +115,11 @@ Sensors/LM35.o
 
 C_DEPS +=  \
 Apps/Calculator.d \
-Apps/DCmotor.d \
+Apps/Fan\ Controller.d \
 Apps/Servo\ Lap.d \
 Apps/Stop\ Watch.d \
 Apps/Timer\ 0\ test.d \
+HAL/DCmotor.d \
 HAL/Keypad.d \
 HAL/LCD.d \
 HAL/Servo.d \
@@ -133,10 +137,11 @@ Sensors/LM35.d
 
 C_DEPS_AS_ARGS +=  \
 Apps/Calculator.d \
-Apps/DCmotor.d \
+"Apps/Fan Controller.d" \
 "Apps/Servo Lap.d" \
 "Apps/Stop Watch.d" \
 "Apps/Timer 0 test.d" \
+HAL/DCmotor.d \
 HAL/Keypad.d \
 HAL/LCD.d \
 HAL/Servo.d \
@@ -173,7 +178,7 @@ Apps/Calculator.o: ../Apps/Calculator.c
 	@echo Finished building: $<
 	
 
-Apps/DCmotor.o: ../Apps/DCmotor.c
+Apps/Fan\ Controller.o: ../Apps/Fan\ Controller.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -195,6 +200,13 @@ Apps/Stop\ Watch.o: ../Apps/Stop\ Watch.c
 	
 
 Apps/Timer\ 0\ test.o: ../Apps/Timer\ 0\ test.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+HAL/DCmotor.o: ../HAL/DCmotor.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

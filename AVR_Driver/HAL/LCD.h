@@ -32,7 +32,7 @@
 
 #define RS               PINB0
 #define RW               PINB1
-#define EN               PINB3
+#define EN               PINB2
 
 /* ============= LCD Commands ================== */
 #define LCD_FUNCTION_8BIT_2LINES   					(0x38)

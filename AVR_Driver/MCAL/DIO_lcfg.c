@@ -24,7 +24,7 @@ const DIO_PINstatus_type PinStatusArray[32]={
 	/*PORTB*/
 	output,
 	output,
-	inplup,
+	output,
 	output,
 	output,
 	output,

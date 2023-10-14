@@ -12,7 +12,9 @@ main.d main.o: .././main.c \
  .././HAL/../MCAL/DIO.h .././HAL/Keypad.h .././HAL/LCD.h .././MCAL/EXTI.h \
  .././MCAL/Timer0.h .././MCAL/Timer1.h .././HAL/Servo.h \
  .././HAL/../MemoryMap.h .././MCAL/ADC.h .././Sensors/LM35.h \
- .././Sensors/../MCAL/ADC.h
+ .././Sensors/../MCAL/ADC.h .././Apps/Fan\ Controller.h \
+ .././Apps/../HAL/DCmotor.h .././Apps/../MCAL/ADC.h \
+ .././Apps/../HAL/LCD.h .././Apps/../Sensors/LM35.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
 
@@ -61,3 +63,13 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././Sensors/LM35.h:
 
 .././Sensors/../MCAL/ADC.h:
+
+.././Apps/Fan\ Controller.h:
+
+.././Apps/../HAL/DCmotor.h:
+
+.././Apps/../MCAL/ADC.h:
+
+.././Apps/../HAL/LCD.h:
+
+.././Apps/../Sensors/LM35.h:
