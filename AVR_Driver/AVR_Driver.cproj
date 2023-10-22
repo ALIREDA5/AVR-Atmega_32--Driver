@@ -132,6 +132,12 @@
     <Compile Include="Apps\Fan Controller.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Apps\PWM measure.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Apps\PWM measure.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Apps\Servo Lap.c">
       <SubType>compile</SubType>
     </Compile>
@@ -214,6 +220,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\Timer2.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\UART.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCAL\WD_Timer.c">

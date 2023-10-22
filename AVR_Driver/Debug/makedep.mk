@@ -6,6 +6,8 @@ Apps\Calculator.c
 
 Apps\Fan Controller.c
 
+Apps\PWM measure.c
+
 Apps\Servo Lap.c
 
 Apps\Stop Watch.c
@@ -37,6 +39,8 @@ MCAL\Timer0.c
 MCAL\Timer1.c
 
 MCAL\Timer2.c
+
+MCAL\UART.c
 
 MCAL\WD_Timer.c
 
