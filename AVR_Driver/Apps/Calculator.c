@@ -15,7 +15,7 @@ void Calculator_call()
 	int8_t n1=0, n2=0, op=' ';
 	float res=0;
 	LCD_GOTO(0,0);
-	LCD_WriteString("   Calculator ");
+	LCD_WriteString(" Calculator ");
 	LCD_GOTO(1,0);
 	while(1)
 	{
@@ -31,7 +31,7 @@ void Calculator_call()
 				n1=0;
 				n2=0;
 				LCD_GOTO(0,0);
-				LCD_WriteString("   Calculator ");
+				LCD_WriteString(" Calculator ");
 				LCD_GOTO(1,0);
 			}
 			

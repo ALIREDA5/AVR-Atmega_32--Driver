@@ -20,6 +20,7 @@
 #include "MCAL/Timer1.h"
 #include "MCAL/ADC.h"
 #include "MCAL/UART.h"
+#include "Services/UART_services.h"
 
 
 
@@ -33,14 +34,14 @@ int main(void)
 	LCD_GOTO(0,0);
 	LCD_WriteString("UART Test");
 	uart_init(bits_8,bit_1,Disabled,Asynchronous);
-	uart_send('f');
-	uint8_t x;
+	uint8_t str[100]="Ali Reda Elsaid";
+	uart_send_string(str);
+	uint8_t str1[100];
 	while(1)
 	{
-		x=uart_recieve();
-		LCD_GOTO(1,1);
-		LCD_WriteChar(x);
-	
+		uart_recieve_string(str1);
+		LCD_GOTO(1,0);
+		LCD_WriteString(str);
 	}
 }
 

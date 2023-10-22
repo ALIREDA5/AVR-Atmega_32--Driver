@@ -85,15 +85,18 @@ void uart_init(Character_Size s, Stop_Bits x, Parity_Mode m, Mode y)
 	//  Transmitter Enable
 	SET_BIT(UCSRB,TXEN);
 }
+
 void uart_send(uint8_t data)
 {
 	// check if the buffer is empty 
 	while(!READ_BIT(UCSRA,UDRE));
 	UDR=data;
 }
+
 uint8_t uart_recieve()
 {
 	// check when the receive buffer is empty
 	while(!READ_BIT(UCSRA,RXC));
 	return UDR;
 }
+

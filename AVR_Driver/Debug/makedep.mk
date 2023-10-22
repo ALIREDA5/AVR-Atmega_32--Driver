@@ -46,3 +46,5 @@ MCAL\WD_Timer.c
 
 Sensors\LM35.c
 
+Services\UART_services.c
+

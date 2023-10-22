@@ -5,9 +5,15 @@
  *  Author: Ali Reda
  */ 
 
+			/*----------------- Libraries and Definitions ------------*/
+
 #include "../MCAL/DIO.h"
 #include "../MCAL/Timer0.h"
 #include "DCmotor.h"
+
+		   /*--------------- Function Definitions -----------------*/
+
+/*------------- Function to set motor direction---------------*/
 
 void Mdir(Motor_dir dir)
 {
@@ -25,9 +31,11 @@ void Mdir(Motor_dir dir)
 	}
 }
 
+/*------------- Function to set motor direction with specific speed ---------------*/
 
 void Mspeed(uint8_t s,Motor_dir dir)
 {
+	// timer 0 with fast pwm mode to control speed
 	TIMER0_Init(FAST_PWM,TIMER0_SCALER_8,Inverting);
 	OCR0=255-((uint16_t)255*s)/100;
 	if (dir == left)

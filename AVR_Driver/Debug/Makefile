@@ -36,6 +36,7 @@ SUBDIRS :=  \
 ../MCAL \
 ../HAL \
 ../Apps \
+../Services \
 ../Sensors
 
 
@@ -62,7 +63,8 @@ C_SRCS +=  \
 ../MCAL/Timer2.c \
 ../MCAL/UART.c \
 ../MCAL/WD_Timer.c \
-../Sensors/LM35.c
+../Sensors/LM35.c \
+../Services/UART_services.c
 
 
 PREPROCESSING_SRCS += 
@@ -93,7 +95,8 @@ MCAL/Timer1.o \
 MCAL/Timer2.o \
 MCAL/UART.o \
 MCAL/WD_Timer.o \
-Sensors/LM35.o
+Sensors/LM35.o \
+Services/UART_services.o
 
 OBJS_AS_ARGS +=  \
 Apps/Calculator.o \
@@ -117,7 +120,8 @@ MCAL/Timer1.o \
 MCAL/Timer2.o \
 MCAL/UART.o \
 MCAL/WD_Timer.o \
-Sensors/LM35.o
+Sensors/LM35.o \
+Services/UART_services.o
 
 C_DEPS +=  \
 Apps/Calculator.d \
@@ -141,7 +145,8 @@ MCAL/Timer1.d \
 MCAL/Timer2.d \
 MCAL/UART.d \
 MCAL/WD_Timer.d \
-Sensors/LM35.d
+Sensors/LM35.d \
+Services/UART_services.d
 
 C_DEPS_AS_ARGS +=  \
 Apps/Calculator.d \
@@ -165,7 +170,8 @@ MCAL/Timer1.d \
 MCAL/Timer2.d \
 MCAL/UART.d \
 MCAL/WD_Timer.d \
-Sensors/LM35.d
+Sensors/LM35.d \
+Services/UART_services.d
 
 OUTPUT_FILE_PATH +=AVR_Driver.elf
 
@@ -329,6 +335,13 @@ MCAL/WD_Timer.o: ../MCAL/WD_Timer.c
 	
 
 Sensors/LM35.o: ../Sensors/LM35.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Services/UART_services.o: ../Services/UART_services.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

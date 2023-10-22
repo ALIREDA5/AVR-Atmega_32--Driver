@@ -11,6 +11,8 @@
 
 #include "stdint.h"
 
+/****************** configration ******************/
+
 #define IN1 PINB3
 #define IN2 PINB6
 #define EN1  PINB7
@@ -21,6 +23,7 @@ typedef enum
 	right
 }Motor_dir;
 
+/*--------------------- Functions Prototypes ---------------------------*/
 
 void Mdir(Motor_dir dir);
 void Mspeed(uint8_t s,Motor_dir dir);
