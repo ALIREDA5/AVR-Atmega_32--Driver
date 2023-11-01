@@ -11,7 +11,9 @@ main.d main.o: .././main.c \
  .././MCAL/../MemoryMap.h .././Utils.h .././HAL/Keypad.h .././HAL/LCD.h \
  .././HAL/../MCAL/DIO.h .././MCAL/EXTI.h .././MCAL/Timer0.h \
  .././MCAL/Timer1.h .././MCAL/ADC.h .././MCAL/UART.h \
- .././Services/UART_services.h .././Services/../MCAL/UART.h
+ .././Services/UART_services.h .././Services/../MCAL/UART.h \
+ .././Services/../MemoryMap.h .././Sensors/IR\ Sensor.h \
+ .././Sensors/../MCAL/DIO.h
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
 
@@ -56,3 +58,9 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././Services/UART_services.h:
 
 .././Services/../MCAL/UART.h:
+
+.././Services/../MemoryMap.h:
+
+.././Sensors/IR\ Sensor.h:
+
+.././Sensors/../MCAL/DIO.h:

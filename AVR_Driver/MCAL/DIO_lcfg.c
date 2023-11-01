@@ -40,7 +40,7 @@ const DIO_PINstatus_type PinStatusArray[32]={
 	inplup,
 	inplup,
 	/*PORTD*/
-	infree,
+	inplup,
 	output,
 	inplup,
 	inplup,

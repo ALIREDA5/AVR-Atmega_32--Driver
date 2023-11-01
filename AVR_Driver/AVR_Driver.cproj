@@ -150,6 +150,12 @@
     <Compile Include="Apps\Timer 0 test.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Buzzer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Buzzer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\DCmotor.c">
       <SubType>compile</SubType>
     </Compile>
@@ -168,6 +174,12 @@
     <Compile Include="HAL\LCD.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="HAL\Limit Switch.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Limit Switch.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="HAL\Servo.c">
       <SubType>compile</SubType>
     </Compile>
@@ -178,6 +190,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="HAL\SevenSegment.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Stepper_M.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="HAL\Stepper_M.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
@@ -235,6 +253,24 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MemoryMap.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sensors\Flame Sensor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sensors\Flame Sensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sensors\IR Sensor.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sensors\IR Sensor.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sensors\LDR.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Sensors\LDR.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Sensors\LM35.c">

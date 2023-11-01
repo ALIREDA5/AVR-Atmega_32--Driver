@@ -42,7 +42,14 @@ typedef enum
 void uart_init(Character_Size s, Stop_Bits x, Parity_Mode m, Mode y);
 void uart_send(uint8_t data);
 uint8_t uart_recieve();
-
+uint8_t uart_send_PC(uint8_t c);
+uint8_t uart_recieve_PC(uint8_t *c); 
+void uart_send_noblock(uint8_t c);
+uint8_t uart_recieve_noblock();
+void RX_Complete_Interrupt_Enable();
+void RX_Complete_Interrupt_Disable();
+void TX_Complete_Interrupt_Enable();
+void TX_Complete_Interrupt_Disable();
 
 
 

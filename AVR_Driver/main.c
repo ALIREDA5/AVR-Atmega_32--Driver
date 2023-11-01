@@ -21,27 +21,29 @@
 #include "MCAL/ADC.h"
 #include "MCAL/UART.h"
 #include "Services/UART_services.h"
+#include "Sensors/IR Sensor.h"
 
 
 
 
 			/*-------------------------- The Main Function ----------------------------*/
-			
+	
 int main(void)
 {
 	Init_Pins();
 	LCD_Init();
-	LCD_GOTO(0,0);
-	LCD_WriteString("UART Test");
 	uart_init(bits_8,bit_1,Disabled,Asynchronous);
-	uint8_t str[100]="Ali Reda Elsaid";
-	uart_send_string(str);
-	uint8_t str1[100];
+	uint8_t str[]="ali";
+	uart_send_Asynch(str);
 	while(1)
 	{
-		uart_recieve_string(str1);
-		LCD_GOTO(1,0);
-		LCD_WriteString(str);
+		for (uint8_t i=0; i<9; i++)
+		{
+			LCD_GOTO(0,0);
+			LCD_WriteChar(i);
+		}
+		
+		
 	}
 }
 

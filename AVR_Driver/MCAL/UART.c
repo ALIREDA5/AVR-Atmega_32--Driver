@@ -10,6 +10,7 @@
 #include "../MemoryMap.h"
 #include "../Utils.h"
 
+
 void uart_init(Character_Size s, Stop_Bits x, Parity_Mode m, Mode y)
 {
 	// The frame format
@@ -95,8 +96,64 @@ void uart_send(uint8_t data)
 
 uint8_t uart_recieve()
 {
-	// check when the receive buffer is empty
+	// check when there are unread data in the receive buffer
 	while(!READ_BIT(UCSRA,RXC));
 	return UDR;
+}
+
+uint8_t uart_send_PC(uint8_t c) // periodic check
+{
+	if (READ_BIT(UCSRA,TXC)) // This flag bit is set when the entire frame in the transmit Shift Register has been shifted out
+	{
+		UDR=c;
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
+
+uint8_t uart_recieve_PC(uint8_t *c)
+{
+	if (READ_BIT(UCSRA,RXC)) // This flag bit is set when there are unread data in the receive buffer
+	{
+		*c=UDR;
+		return 1;
+	}	
+	else
+	{
+		return 0;
+	}
+	
+}
+
+void uart_send_noblock(uint8_t c)
+{
+	UDR=c;
+}
+
+uint8_t uart_recieve_noblock()
+{
+	return UDR;
+}
+
+void RX_Complete_Interrupt_Enable()
+{
+	SET_BIT(UCSRB,RXCIE);
+}
+
+void RX_Complete_Interrupt_Disable()
+{
+	CLEAR_BIT(UCSRB,RXCIE);
+}
+
+void TX_Complete_Interrupt_Enable()
+{
+	SET_BIT(UCSRB,TXCIE);
+}
+void TX_Complete_Interrupt_Disable()
+{
+	CLEAR_BIT(UCSRB,TXCIE);
 }
 

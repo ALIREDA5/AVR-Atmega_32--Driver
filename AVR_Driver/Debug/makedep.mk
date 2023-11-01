@@ -14,15 +14,21 @@ Apps\Stop Watch.c
 
 Apps\Timer 0 test.c
 
+HAL\Buzzer.c
+
 HAL\DCmotor.c
 
 HAL\Keypad.c
 
 HAL\LCD.c
 
+HAL\Limit Switch.c
+
 HAL\Servo.c
 
 HAL\SevenSegment.c
+
+HAL\Stepper_M.c
 
 main.c
 
@@ -43,6 +49,12 @@ MCAL\Timer2.c
 MCAL\UART.c
 
 MCAL\WD_Timer.c
+
+Sensors\Flame Sensor.c
+
+Sensors\IR Sensor.c
+
+Sensors\LDR.c
 
 Sensors\LM35.c
 

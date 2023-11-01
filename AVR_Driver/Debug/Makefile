@@ -48,11 +48,14 @@ C_SRCS +=  \
 ../Apps/Servo\ Lap.c \
 ../Apps/Stop\ Watch.c \
 ../Apps/Timer\ 0\ test.c \
+../HAL/Buzzer.c \
 ../HAL/DCmotor.c \
 ../HAL/Keypad.c \
 ../HAL/LCD.c \
+../HAL/Limit\ Switch.c \
 ../HAL/Servo.c \
 ../HAL/SevenSegment.c \
+../HAL/Stepper_M.c \
 ../main.c \
 ../MCAL/ADC.c \
 ../MCAL/DIO.c \
@@ -63,6 +66,9 @@ C_SRCS +=  \
 ../MCAL/Timer2.c \
 ../MCAL/UART.c \
 ../MCAL/WD_Timer.c \
+../Sensors/Flame\ Sensor.c \
+../Sensors/IR\ Sensor.c \
+../Sensors/LDR.c \
 ../Sensors/LM35.c \
 ../Services/UART_services.c
 
@@ -80,11 +86,14 @@ Apps/PWM\ measure.o \
 Apps/Servo\ Lap.o \
 Apps/Stop\ Watch.o \
 Apps/Timer\ 0\ test.o \
+HAL/Buzzer.o \
 HAL/DCmotor.o \
 HAL/Keypad.o \
 HAL/LCD.o \
+HAL/Limit\ Switch.o \
 HAL/Servo.o \
 HAL/SevenSegment.o \
+HAL/Stepper_M.o \
 main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
@@ -95,6 +104,9 @@ MCAL/Timer1.o \
 MCAL/Timer2.o \
 MCAL/UART.o \
 MCAL/WD_Timer.o \
+Sensors/Flame\ Sensor.o \
+Sensors/IR\ Sensor.o \
+Sensors/LDR.o \
 Sensors/LM35.o \
 Services/UART_services.o
 
@@ -105,11 +117,14 @@ Apps/Calculator.o \
 "Apps/Servo Lap.o" \
 "Apps/Stop Watch.o" \
 "Apps/Timer 0 test.o" \
+HAL/Buzzer.o \
 HAL/DCmotor.o \
 HAL/Keypad.o \
 HAL/LCD.o \
+"HAL/Limit Switch.o" \
 HAL/Servo.o \
 HAL/SevenSegment.o \
+HAL/Stepper_M.o \
 main.o \
 MCAL/ADC.o \
 MCAL/DIO.o \
@@ -120,6 +135,9 @@ MCAL/Timer1.o \
 MCAL/Timer2.o \
 MCAL/UART.o \
 MCAL/WD_Timer.o \
+"Sensors/Flame Sensor.o" \
+"Sensors/IR Sensor.o" \
+Sensors/LDR.o \
 Sensors/LM35.o \
 Services/UART_services.o
 
@@ -130,11 +148,14 @@ Apps/PWM\ measure.d \
 Apps/Servo\ Lap.d \
 Apps/Stop\ Watch.d \
 Apps/Timer\ 0\ test.d \
+HAL/Buzzer.d \
 HAL/DCmotor.d \
 HAL/Keypad.d \
 HAL/LCD.d \
+HAL/Limit\ Switch.d \
 HAL/Servo.d \
 HAL/SevenSegment.d \
+HAL/Stepper_M.d \
 main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
@@ -145,6 +166,9 @@ MCAL/Timer1.d \
 MCAL/Timer2.d \
 MCAL/UART.d \
 MCAL/WD_Timer.d \
+Sensors/Flame\ Sensor.d \
+Sensors/IR\ Sensor.d \
+Sensors/LDR.d \
 Sensors/LM35.d \
 Services/UART_services.d
 
@@ -155,11 +179,14 @@ Apps/Calculator.d \
 "Apps/Servo Lap.d" \
 "Apps/Stop Watch.d" \
 "Apps/Timer 0 test.d" \
+HAL/Buzzer.d \
 HAL/DCmotor.d \
 HAL/Keypad.d \
 HAL/LCD.d \
+"HAL/Limit Switch.d" \
 HAL/Servo.d \
 HAL/SevenSegment.d \
+HAL/Stepper_M.d \
 main.d \
 MCAL/ADC.d \
 MCAL/DIO.d \
@@ -170,6 +197,9 @@ MCAL/Timer1.d \
 MCAL/Timer2.d \
 MCAL/UART.d \
 MCAL/WD_Timer.d \
+"Sensors/Flame Sensor.d" \
+"Sensors/IR Sensor.d" \
+Sensors/LDR.d \
 Sensors/LM35.d \
 Services/UART_services.d
 
@@ -229,6 +259,13 @@ Apps/Timer\ 0\ test.o: ../Apps/Timer\ 0\ test.c
 	@echo Finished building: $<
 	
 
+HAL/Buzzer.o: ../HAL/Buzzer.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 HAL/DCmotor.o: ../HAL/DCmotor.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -250,6 +287,13 @@ HAL/LCD.o: ../HAL/LCD.c
 	@echo Finished building: $<
 	
 
+HAL/Limit\ Switch.o: ../HAL/Limit\ Switch.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 HAL/Servo.o: ../HAL/Servo.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
@@ -258,6 +302,13 @@ HAL/Servo.o: ../HAL/Servo.c
 	
 
 HAL/SevenSegment.o: ../HAL/SevenSegment.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+HAL/Stepper_M.o: ../HAL/Stepper_M.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
@@ -328,6 +379,27 @@ MCAL/UART.o: ../MCAL/UART.c
 	
 
 MCAL/WD_Timer.o: ../MCAL/WD_Timer.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Sensors/Flame\ Sensor.o: ../Sensors/Flame\ Sensor.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Sensors/IR\ Sensor.o: ../Sensors/IR\ Sensor.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Sensors/LDR.o: ../Sensors/LDR.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega32 -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega32" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

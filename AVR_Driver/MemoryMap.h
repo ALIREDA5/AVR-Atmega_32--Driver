@@ -207,6 +207,7 @@
 #define    UPE          2
 #define    U2X          1
 #define    MPCM         0
+
 /* USART Control Register B  */
 #define    RXCIE        7
 #define    TXCIE        6
