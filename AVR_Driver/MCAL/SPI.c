@@ -116,7 +116,7 @@ uint8_t SPI_recieve_PC(uint8_t *data)
 
 void SPI_recieve_setcallback(uint8_t *data)
 {
-	*pdata=*data;
+	data = pdata;
 }
 
 void SPI_interrupt_enable()
